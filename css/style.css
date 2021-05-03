@@ -241,20 +241,22 @@ body {
     right: -30px;
 }
 
-.carousel__lista {
-    overflow: hidden;
-}
-
 .carousel__elemento {
     text-align: center;
     width: 237px !important;
-    height: 178px !important;
+    height: 178px;
     border: 1px solid;
     border-radius: 20px;
     padding: 25px;
     margin: 1px;
     background: #C6D2B9 0% 0% no-repeat padding-box;
     opacity: 1;
+}
+
+.carousel__elemento:hover {
+    background: #abbb99 0% 0% no-repeat padding-box;
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
 }
 
 .carousel__indicadores .glider-dot {

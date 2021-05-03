@@ -54,10 +54,16 @@ $(document).ready(function() {
     $('.text').on('click', function() {
         $('.menus').toggle();
     });
+
+    getallPokemons();
+
+    createBannerPokemons();
+
 });
 
 $(document).on('click', '.js-login', function() {
     $('#myModal').modal();
+
 });
 
 $(document).on('click', '.js-btnlogin', function() {
@@ -90,3 +96,22 @@ $(document).on('click', '#closesession', function() {
     $('#closesession').hide();
     $('#welcome').hide();
 });
+
+function createBannerPokemons() {
+    if (localStorage.getItem("totalpokemons") != undefined || localStorage.getItem("totalpokemons")) {
+        let getTotalPOkemons = parseInt(localStorage.getItem("totalpokemons"));
+        for (let index = 0; index < 10; index++) {
+            let pokemon = GetPokemonById(Math.floor(Math.random() * getTotalPOkemons));
+            let html = "";
+            if (pokemon != undefined || pokemon != null) {
+                html += '<div class="carousel__elemento">';
+
+                html += '</div>';
+
+            }
+
+        }
+
+
+    }
+}
