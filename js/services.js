@@ -13,18 +13,16 @@ function getallPokemons() {
     });
 }
 
-function GetPokemonById(idPokemon) {
+function GetPokemonById(idPokemon, returnfunction) {
+    let obj = "";
+    let uri = urlPokeApi + getPokemonMethod + idPokemon + "/";
     $.ajax({
         type: "GET",
-        url: urlPokeApi + getPokemonMethod + idPokemon + "/",
-        dataType: 'json',
-        success: function(data) {
-            if (data != undefined || data != null) {
-                return data;
-            }
-        },
-        error: function() {
-            return null;
+        url: uri,
+        async: true
+    }).done(function(data) {
+        if (returnfunction != "") {
+            returnfunction(data);
         }
     });
 }

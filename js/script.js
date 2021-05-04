@@ -15,6 +15,26 @@ function showDivs(n) {
     }
     x[slideIndex - 1].style.display = "block";
 }
+
+$(document).ready(function() {
+    $('#closesession').hide();
+    $('#welcome').hide();
+    $('.zoom').hover(function() {
+        $(this).addClass('transition');
+    }, function() {
+        $(this).removeClass('transition');
+    });
+    $('.text').on('click', function() {
+        $('.menus').toggle();
+    });
+
+    getallPokemons();
+
+    createBannerPokemons();
+
+});
+
+
 window.addEventListener('load', function() {
     new Glider(document.querySelector('.carousel__lista'), {
         slidesToShow: 1,
@@ -43,23 +63,6 @@ window.addEventListener('load', function() {
     });
 });
 
-$(document).ready(function() {
-    $('#closesession').hide();
-    $('#welcome').hide();
-    $('.zoom').hover(function() {
-        $(this).addClass('transition');
-    }, function() {
-        $(this).removeClass('transition');
-    });
-    $('.text').on('click', function() {
-        $('.menus').toggle();
-    });
-
-    getallPokemons();
-
-    createBannerPokemons();
-
-});
 
 $(document).on('click', '.js-login', function() {
     $('#myModal').modal();
@@ -101,17 +104,60 @@ function createBannerPokemons() {
     if (localStorage.getItem("totalpokemons") != undefined || localStorage.getItem("totalpokemons")) {
         let getTotalPOkemons = parseInt(localStorage.getItem("totalpokemons"));
         for (let index = 0; index < 10; index++) {
-            let pokemon = GetPokemonById(Math.floor(Math.random() * getTotalPOkemons));
-            let html = "";
-            if (pokemon != undefined || pokemon != null) {
-                html += '<div class="carousel__elemento">';
-
-                html += '</div>';
-
-            }
-
+            console.log(Math.floor(Math.random() * getTotalPOkemons));
+            GetPokemonById(Math.floor(Math.random() * getTotalPOkemons), contructBannersHtml);
         }
-
-
     }
+}
+
+function contructBannersHtml(data) {
+    let pokemon = data;
+    let html = "";
+    if (pokemon != undefined || pokemon != null) {
+        html += '<div class="carousel__elemento carousel__indicadores">'
+        html += '<a href="https://www.pokemon.com/el/pokedex/' + pokemon.name + '" target="_blank" > '
+        html += '<img src="' + pokemon.sprites.other["official-artwork"].front_default + '" id="pkmimageBanner" />'
+        html += ' <br>'
+        html += '<div class="">'
+        html += '<p><strong>' + pokemon.name + '</strong></p>'
+        html += ' </div>'
+        html += '<div class="row" style="background-color: #B0B1B0; border-radius: 10%;">'
+        html += '<table class="col-sm-12">'
+        html += '<tr>'
+        html += '<td class="center">'
+        html += '<div class="w3-margin-left text-white tipo" style="background-color:' + colours[pokemon.types[0].type.name] + ' ">'
+        html += '<p>' + pokemon.types[0].type.name + '</p>'
+        html += '</div>'
+        html += '</td>'
+        html += '<td>'
+        html += '<div>'
+        html += '<div>'
+        html += '<strong>'
+        html += 'Habilidad'
+        html += '</strong>'
+        html += '</div>'
+        html += '<div>'
+        html += pokemon.abilities[0].ability.name
+        html += '</div>'
+        html += '</div>'
+        html += '</td>'
+        html += '</tr>'
+        html += '</table>'
+        html += '</div>'
+        html += '</a>'
+        html += '</div>'
+
+        $(".carousel__lista").append(html);
+    }
+}
+
+
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    $(".container").style.marginLeft = "250px";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    $(".container").style.marginLeft = "250px";;
 }

@@ -13,6 +13,7 @@
     <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js"></script>
     <script src="js/services.js"></script>
+    <script src="js/pokemon-type-colours.js"></script>
 
     <title>.:: PokeZoo ::.</title>
 </head>
@@ -39,29 +40,18 @@
         <div class="row">
             <div class="col-lg">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <a class="navbar-brand" href="#"><span class="navbar-toggler-icon">
+                    <a class="navbar-brand" href="#" onclick="openNav()">
+                        <span class="navbar-toggler-icon">
                             <img src="assets/pokebolaIcon.jpg" class="searchbtn" />
-                        </span> Menu</a>
+                        </span>
+                    </a>
+                    <div id="mySidenav" class="sidenav">
+                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                        <a href="https://pokemon.fandom.com/wiki/Berry">Berries</a>
+                        <a href="https://www.pokemon.com/el/pokedex/">Pokedex</a>
+                        <a href="https://pokemondb.net/item/all">Items</a>
+                    </div>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav mr-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="#">asasdasd </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Link</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Dropdown
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                </div>
-                            </li>
-                        </ul>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <span id="welcome" class="form-inline my-2 my-lg-0">Welcome</span>
                             <span id="user" class="form-inline my-2 my-lg-0"></span>
@@ -117,40 +107,6 @@
                     </button>
 
                     <div class="carousel__lista">
-                        <div class="carousel__elemento">
-                            <img src="assets/200.png" alt="Rock and Roll Hall of Fame" width="50px" height="50px" />
-                            <div class="carousel__elemento__footer" style="background-color: brown;">
-                                <table>
-                                    <tr>
-                                        <td>NOMBRE</td>
-                                        <td>
-                                            <p>Habilidad</p>
-                                            <p>[Habilidad]</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div style="border-radius:10%; background-color: blueviolet;">
-                                                Tipo|
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="">
-                                        <td colspan="2">
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    Formas
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <span class="glyphicon glyphicon-ok">Forma1|</span>
-                                                    <span class="glyphicon glyphicon-ok">Forma2</span>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
                     </div>
 
                     <button aria-label="Siguiente" class="carousel__siguiente w3-black">
